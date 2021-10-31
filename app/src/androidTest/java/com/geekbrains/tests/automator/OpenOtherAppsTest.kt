@@ -3,10 +3,10 @@ package com.geekbrains.tests.automator
 import android.widget.TextView
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SdkSuppress
-import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiScrollable
 import androidx.test.uiautomator.UiSelector
+import com.geekbrains.tests.getUiDevice
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 @SdkSuppress(minSdkVersion = 18)
 class OpenOtherAppsTest {
 
-    private val uiDevice: UiDevice = UiDevice.getInstance(getInstrumentation())
+    private val uiDevice: UiDevice = getUiDevice()
 
     @Test
     fun test_OpenSettings() {

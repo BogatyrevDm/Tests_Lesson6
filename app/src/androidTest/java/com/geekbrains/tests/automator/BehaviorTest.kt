@@ -1,19 +1,19 @@
 package com.geekbrains.tests.automator
 
-import android.content.Context
 import android.content.Intent
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SdkSuppress
-import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.UiDevice
 import androidx.test.uiautomator.UiObject2
 import androidx.test.uiautomator.Until
 import com.geekbrains.tests.R
+import com.geekbrains.tests.TEST_NUMBER_OF_RESULTS_ZERO
+import com.geekbrains.tests.getContext
+import com.geekbrains.tests.getUiDevice
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -26,10 +26,10 @@ class BehaviorTest {
     //Класс UiDevice предоставляет доступ к вашему устройству.
     //Именно через UiDevice вы можете управлять устройством, открывать приложения
     //и находить нужные элементы на экране
-    private val uiDevice: UiDevice = UiDevice.getInstance(getInstrumentation())
+    private val uiDevice: UiDevice = getUiDevice()
 
     //Контекст нам понадобится для запуска нужных экранов и получения packageName
-    private val context = ApplicationProvider.getApplicationContext<Context>()
+    private val context = getContext()
 
     //Путь к классам нашего приложения, которые мы будем тестировать
     private val packageName = context.packageName
@@ -107,7 +107,7 @@ class BehaviorTest {
         //так как мы кликаем по кнопке не отправляя никаких поисковых запросов.
         //Чтобы проверить отображение определенного количества репозиториев,
         //вам в одном и том же методе нужно отправить запрос на сервер и открыть DetailsScreen.
-        Assert.assertEquals(changedText.text, "Number of results: 0")
+        Assert.assertEquals(changedText.text, TEST_NUMBER_OF_RESULTS_ZERO)
     }
 
     companion object {
