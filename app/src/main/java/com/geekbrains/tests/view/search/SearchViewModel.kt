@@ -17,7 +17,7 @@ class SearchViewModel(
 ) : ViewModel() {
     private val _liveData = MutableLiveData<ScreenState>()
 
-    fun sunbscriveToLiveData(): LiveData<ScreenState> = _liveData
+    fun subscriveToLiveData(): LiveData<ScreenState> = _liveData
 
     fun searchGitHub(searchQuery: String) {
         //Dispose

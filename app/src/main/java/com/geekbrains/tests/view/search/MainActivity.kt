@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity(), ViewSearchContract {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUI()
-        viewModel.sunbscriveToLiveData().observe(this){onStateChange(it)}
+        viewModel.subscriveToLiveData().observe(this){onStateChange(it)}
     }
     private fun onStateChange(screenState: ScreenState) {
         when (screenState) {
